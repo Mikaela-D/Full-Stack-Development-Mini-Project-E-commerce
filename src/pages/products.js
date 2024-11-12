@@ -1,14 +1,12 @@
-import React from "react";
-
-const HomePage = () => {
+const ProductsPage = () => {
   return (
     <div>
       <header>
-        <h1>Welcome to the E-Commerce Store</h1>
+        <h1>Products</h1>
         <nav>
           <ul>
             <li>
-              <a href="/products">Products</a>
+              <a href="/">Home</a>
             </li>
             <li>
               <a href="/orders">Orders</a>
@@ -21,9 +19,9 @@ const HomePage = () => {
       </header>
 
       <main>
-        <h2>Featured Products</h2>
-        <p>Check out our amazing products!</p>
-        {/* Products will go here */}
+        <h2>Our Product Collection</h2>
+        <p>Browse our selection of amazing products.</p>
+        {/* Product listings will go here */}
       </main>
 
       <footer>
@@ -33,4 +31,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default ProductsPage;
