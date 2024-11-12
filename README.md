@@ -21,3 +21,4 @@ This project is a small E-Commerce platform that manages and displays inventory 
    1. nvm install 18.18.0
    2. nvm use 18.18.0
 5. Run the project using npm run dev
+6. Open http://localhost:3000
