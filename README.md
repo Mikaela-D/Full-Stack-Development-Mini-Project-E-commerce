@@ -18,6 +18,6 @@ This project is a small E-Commerce platform that manages and displays inventory 
 3. Node.js is required
 4. Use the version of Node.js 18.18.0
    #### Commands:
-   nvm install 18.18.0
-   nvm use 18.18.0
+   1. nvm install 18.18.0
+   2. nvm use 18.18.0
 5. Run the project using npm run dev
