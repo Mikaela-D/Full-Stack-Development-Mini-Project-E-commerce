@@ -11,3 +11,13 @@ This project is a small E-Commerce platform that manages and displays inventory 
 * Order Button Update Logic: Demonstrate non-updating order status until state is updated in the parent component.
 * A pop-up confirming item addition to the cart.
 * An API route for fetching products and managing inventory data.
+
+## Project Setup:
+1. Download the zip file and unzip it
+2. Run npm install
+3. Node.js is required
+4. Use the version of Node.js 18.18.0
+   ####Commands:
+   nvm install 18.18.0
+   nvm use 18.18.0
+5. Run the project using npm run dev
