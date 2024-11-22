@@ -1,0 +1,33 @@
+{
+  "name": "full-stack-mini-project-e-commerce",
+  "version": "1.0.0",
+  "description": "Ecommerce app that connects to MondoDb",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mikaela and Parthib",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "mongoose": "^8.8.2",
+    "next": "^15.0.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mikaela-D/Full-Stack-Development-Mini-Project-E-commerce.git"
+  },
+  "keywords": [
+    "Ecommerce"
+  ],
+  "bugs": {
+    "url": "https://github.com/Mikaela-D/Full-Stack-Development-Mini-Project-E-commerce/issues"
+  },
+  "homepage": "https://github.com/Mikaela-D/Full-Stack-Development-Mini-Project-E-commerce#readme"
+}
