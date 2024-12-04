@@ -22,7 +22,7 @@ const HomePage = () => {
 
       <main>
         <h2>Featured Products</h2>
-        <p>Check out our amazing products!</p>
+        <p>The products will be displayed here</p>
         {/* Products will go here */}
       </main>
 

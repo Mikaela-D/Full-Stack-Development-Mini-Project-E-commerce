@@ -4,7 +4,7 @@
 This project is a small E-Commerce platform that manages and displays inventory items.
 
 ### Key Features:
-* Navigation: Include pages for Home, Products, Orders, and Admin.
+* Navigation: Include pages for Home, Products, Cart, and Admin.
 * Data Handling (Context API): Use Context to manage cart state, user sessions, and product information across components.
 * Database Integration: Store product details, user profiles, and order history in MongoDB.
 * Interval Timer: Set up an interval timer for a special "Flash Sale" button that shows a countdown timer and increments product availability every few seconds.
