@@ -1,12 +1,20 @@
-import clientPromise from "@/mongodb/mongodb";
+import { MongoClient, ObjectId } from "mongodb"; // Use MongoClient and ObjectId from 'mongodb'
+
+const uri = process.env.MONGODB_URI;
 
 export default async function handler(req, res) {
-  const client = await clientPromise;
-  const db = client.db("ecommerce");
+  if (req.method === "POST" || req.method === "DELETE") {
+    try {
+      // Connect to MongoDB
+      const client = await MongoClient.connect(uri, {
+        useUnifiedTopology: true,
+      });
 
-  try {
-    switch (req.method) {
-      case "POST": // Add a new product
+      // Access the database
+      const db = client.db("ecommerce");
+
+      if (req.method === "POST") {
+        // Add a new product
         const { name, price, description, stock } = req.body;
 
         if (!name || !price || !description || stock == null) {
@@ -16,11 +24,14 @@ export default async function handler(req, res) {
         const newProduct = { name, price, description, stock };
         const result = await db.collection("products").insertOne(newProduct);
 
+        // Close the client
+        await client.close();
+
         return res
           .status(201)
           .json({ message: "Product added.", product: result.ops[0] });
-
-      case "DELETE": // Delete a product
+      } else if (req.method === "DELETE") {
+        // Delete a product
         const { id } = req.query;
 
         if (!id) {
@@ -32,16 +43,21 @@ export default async function handler(req, res) {
           .deleteOne({ _id: new ObjectId(id) });
 
         if (deleteResult.deletedCount === 0) {
+          await client.close();
           return res.status(404).json({ message: "Product not found." });
         }
 
-        return res.status(200).json({ message: "Product deleted." });
+        // Close the client
+        await client.close();
 
-      default:
-        res.status(405).json({ message: "Method Not Allowed." });
+        return res.status(200).json({ message: "Product deleted." });
+      }
+    } catch (error) {
+      console.error("Error managing products:", error);
+      res.status(500).json({ message: "Internal Server Error." });
     }
-  } catch (error) {
-    console.error("Error managing products:", error);
-    res.status(500).json({ message: "Internal Server Error." });
+  } else {
+    // Handle unsupported methods
+    res.status(405).json({ message: "Method Not Allowed." });
   }
 }
