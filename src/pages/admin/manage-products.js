@@ -12,7 +12,7 @@ const ManageProducts = () => {
   // Fetch products from the database
   useEffect(() => {
     const fetchProducts = async () => {
-      const res = await fetch("/api/products");
+      const res = await fetch("/api/admin/products");
       const data = await res.json();
       setProducts(data);
     };
@@ -31,6 +31,7 @@ const ManageProducts = () => {
     e.preventDefault();
 
     const res = await fetch("/api/admin/products", {
+      // /Users/mdiaz/Desktop/Code/full-stack-mini-project-e-commerce/src/pages/api/admin/products.js
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -42,20 +43,6 @@ const ManageProducts = () => {
     if (res.ok) {
       setProducts([...products, data.product]);
       setFormData({ name: "", price: "", description: "", stock: "" });
-    } else {
-      alert(data.message);
-    }
-  };
-
-  // Delete a product
-  const handleDeleteProduct = async (id) => {
-    const res = await fetch(`/api/admin/products?id=${id}`, {
-      method: "DELETE",
-    });
-
-    const data = await res.json();
-    if (res.ok) {
-      setProducts(products.filter((product) => product._id !== id));
     } else {
       alert(data.message);
     }
@@ -111,9 +98,6 @@ const ManageProducts = () => {
             <p>Price: ${product.price}</p>
             <p>Description: {product.description}</p>
             <p>Stock: {product.stock}</p>
-            <button onClick={() => handleDeleteProduct(product._id)}>
-              Delete
-            </button>
           </li>
         ))}
       </ul>
